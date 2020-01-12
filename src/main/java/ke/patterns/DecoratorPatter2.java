@@ -70,4 +70,5 @@ class Slack extends MessageNotifierDecorator {
     public String sendMassageToSlackChannels() {
        return "send message to slack channels";
     }
+
 }
