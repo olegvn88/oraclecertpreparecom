@@ -1,0 +1,14 @@
+{
+  "firstName" : "Oleg",
+  "age" : 31,
+  "contacts" : {
+    "city" : "Kyiv",
+    "Country" : "Ukraine"
+  },
+  "available" : {
+    "hired" : true
+  },
+  "status" : {
+    "activeSearch" : "false"
+  }
+}
