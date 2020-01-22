@@ -1,4 +1,4 @@
-package ke.serialisation_example;
+package ke.serialisation_example.example2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

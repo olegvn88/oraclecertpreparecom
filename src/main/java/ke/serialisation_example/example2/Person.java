@@ -1,4 +1,4 @@
-package ke.serialisation_example;
+package ke.serialisation_example.example2;
 
 
 import java.io.*;
@@ -74,6 +74,7 @@ public class Person implements Serializable {
         System.out.println("Before Serialize: " + "\n" + igor + "\n" + renat);
         System.out.println("After Restored From Byte: " + "\n" + igorRestoredFromByte + "\n" + renatRestoredFromByte);
         System.out.println("After Restored: " + "\n" + igorRestored + "\n" + renatRestored);
+
 
     }
 }
