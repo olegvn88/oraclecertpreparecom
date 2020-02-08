@@ -2,6 +2,7 @@ package streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 public class Examples {
@@ -44,6 +45,13 @@ class Task {
         people.stream().filter(x -> x.sex.equals(Sex.MAN) && x.age >= 18 && x.age <= 27).map(name -> name.name).forEach(System.out::println);
         List<String> collect = people.stream().filter(x -> x.sex.equals(Sex.MAN) && x.age >= 18 && x.age <= 27).map(name -> name.name).collect(Collectors.toList());
         System.out.println(collect.toString());
+        //Найти средний возраст среди мужчин
+        OptionalDouble average = people.stream().filter(age -> age.sex.equals(Sex.MAN)).mapToInt(x -> x.age).average();
+        System.out.println(average.getAsDouble());
+        //Найти кол-во потенциально работоспособных людей в выборке (т.е. от 18 лет и учитывая что женщины выходят в 55 лет, а мужчина в 60)
+        long count = people.stream().filter(p -> p.age >= 18).filter(p -> (p.sex.equals(Sex.WOMAN) && p.age <= 55) ||
+                (p.sex.equals(Sex.MAN) && p.age <= 60)).count();
+        System.out.println(count);
     }
 
 }
