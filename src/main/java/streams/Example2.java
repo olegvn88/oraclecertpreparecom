@@ -12,6 +12,7 @@ package streams;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Example2 {
     public static void main(String[] args) {
@@ -39,8 +40,20 @@ public class Example2 {
         //Добавить "1000" к каждому элементу первой коллекции
         System.out.println(list.stream().map(x -> x + 10000).collect(Collectors.toList()));
 
-        //Из второй коллекции получить сумму всех чисел, перечисленных через запятую
+        //Из коллекции получить сумму всех чисел, перечисленных через запятую
         int sum = list.stream().flatMapToInt(p -> Arrays.stream(p.toString().split(",")).mapToInt(Integer::parseInt)).sum();
         System.out.println(sum);
+
+        //Вернуть первый элемент коллекции или 0, если коллекция пуста
+        System.out.println(list.stream().findFirst().orElse(0));
+
+        //Вернуть последний элемент коллекции или «empty», если коллекция пуста
+        //skip 	Позволяет пропустить N первых элементов
+        System.out.println(list.stream().skip(list.size() - 1).findAny().orElse(0));
+
+        //В коллекции убрать первый символ и вернуть массив чисел (int[])
+        Stream stream2 = Stream.of("433", "434", "978", "6895");
+        int[] ints = stream2.mapToInt((s) -> Integer.parseInt(s.toString().substring(1))).toArray();
+        Arrays.stream(ints).forEach(x -> System.out.print(x + " "));
     }
 }
